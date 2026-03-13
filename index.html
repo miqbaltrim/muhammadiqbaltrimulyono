@@ -1,11 +1,569 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Iqbal Tri Mulyono | Digital Creative Portfolio</title>
-  <meta name="description" content="Portfolio of Muhammad Iqbal Tri Mulyono — Social Media Specialist, Graphic Designer, Digital Marketer, Data Analyst, Web Developer, and UI/UX Designer." />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Portfolio Personal Branding</title>
+  <meta name="description" content="Portfolio modern, animated, profesional, dan personal branding." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: rgba(255,255,255,0.05);
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #f5f7fb;
+      --muted: #b7c1d1;
+      --primary: #6ea8fe;
+      --secondary: #8b5cf6;
+      --accent: #22d3ee;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --max-width: 1160px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110,168,254,0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(139,92,246,0.18), transparent 32%),
+        linear-gradient(180deg, #08101b 0%, #0a1424 45%, #07111f 100%);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .blur-orb {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.35;
+      z-index: -1;
+      animation: floatOrb 12s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      background: #2563eb;
+      top: 2%;
+      left: -5%;
+    }
+
+    .orb-2 {
+      background: #8b5cf6;
+      top: 40%;
+      right: -6%;
+      animation-delay: -4s;
+    }
+
+    .orb-3 {
+      background: #22d3ee;
+      bottom: 0;
+      left: 25%;
+      animation-delay: -8s;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-25px) translateX(15px) scale(1.08); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 16, 27, 0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      font-size: 18px;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 16px 35px rgba(110, 168, 254, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 45px rgba(110, 168, 254, 0.28);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #d9e4f4;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 1.02;
+      margin-bottom: 18px;
+      letter-spacing: -1.8px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #b4cbff 30%, #9ae6ff 70%, #d8b4fe 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .metric {
+      min-width: 140px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .metric strong {
+      font-size: 1.6rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .profile-card {
+      position: relative;
+      border-radius: 30px;
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(110,168,254,0.12), rgba(34,211,238,0.06), rgba(139,92,246,0.14));
+      pointer-events: none;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      z-index: 1;
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 420px;
+      background:
+        linear-gradient(135deg, rgba(110,168,254,0.22), rgba(139,92,246,0.18)),
+        url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80') center/cover;
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+    }
+
+    .profile-badge {
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(7,17,31,0.72);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .profile-badge h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .profile-badge p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    section {
+      padding: 34px 0 26px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin-bottom: 8px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(110,168,254,0.3);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, rgba(110,168,254,0.2), rgba(139,92,246,0.2));
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chip {
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: #e9eef8;
+      font-size: 0.92rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      box-shadow: var(--shadow);
+      transition: 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .project-cover {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(7,17,31,0.45) 100%);
+    }
+
+    .cover-1 {
+      background: linear-gradient(135deg, rgba(110,168,254,0.25), rgba(34,211,238,0.2)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    .cover-2 {
+      background: linear-gradient(135deg, rgba(139,92,246,0.25), rgba(110,168,254,0.18)), url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    .cover-3 {
+      background: linear-gradient(135deg, rgba(34,211,238,0.22), rgba(139,92,246,0.18)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    .project-body {
+      padding: 22px;
+    }
+
+    .project-meta {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: #dae6f8;
+    }
+
+    .project-body p {
+      margin: 10px 0 18px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      font-size: 0.92rem;
+      color: #dce8ff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-year {
+      color: #d7e5ff;
+      font-weight: 800;
+    }
+
+    .timeline-content span {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-box {
+      padding: 34px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(110,168,254,0.16), rgba(139,92,246,0.13), rgba(34,211,238,0.12));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-box p {
+      color: #d8e3f3;
+      line-height: 1.8;
+      max-width: 620px;
+    }
+
+    footer {
+      padding: 34px 0 50px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .projects,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 64px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .profile-card,
+      .card,
+      .timeline-item,
+      .contact-box {
+        border-radius: 22px;
+      }
+
+      .avatar-wrap {
+        min-height: 340px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="blur-orb orb-1"></div>
@@ -13,208 +571,247 @@
   <div class="blur-orb orb-3"></div>
 
   <header>
-    <div class="container nav nav-centered">
-      <nav class="nav-links nav-links-centered">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <div class="brand-mark">P</div>
+        <div>
+          <div>Nama Kamu</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">Tentang</a>
+        <a href="#services">Layanan</a>
+        <a href="#projects">Project</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Kontak</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero hero-home">
+    <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="reveal active">
-          <span class="eyebrow">Social Media Specialist • Graphic Designer • Digital Marketer • Web Developer</span>
+          <span class="eyebrow">Creative Professional • Personal Brand Portfolio</span>
           <h1>
-            I blend <span class="gradient-text">creativity, strategy, and data</span>
-            to build stronger digital experiences.
+            Saya membantu brand tampil
+            <span class="gradient-text">lebih modern, kuat, dan berkesan.</span>
           </h1>
           <p>
-            My name is <strong>Muhammad Iqbal Tri Mulyono</strong>, a digital professional from Cirebon and graduate of Muhammadiyah University of Cirebon.
-            I work across social media, visual design, digital marketing, data analysis, web development, and UI/UX to help brands communicate clearly and grow effectively.
+            Saya adalah desainer kreatif yang berfokus pada visual branding, UI modern, dan pengalaman digital yang elegan.
+            Portfolio ini dirancang untuk menampilkan keahlian, karakter profesional, dan nilai personal branding dalam satu tampilan yang premium.
           </p>
           <div class="hero-actions">
-            <a href="projects.html" class="btn btn-primary">View My Projects</a>
-            <a href="about.html" class="btn btn-secondary">Read My Story</a>
+            <a href="#projects" class="btn btn-primary">Lihat Project</a>
+            <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
           </div>
-
           <div class="hero-metrics">
             <div class="metric">
-              <strong>6</strong>
-              <span>Main digital skill areas</span>
+              <strong>4+</strong>
+              <span>Tahun pengalaman</span>
             </div>
             <div class="metric">
-              <strong>Creative</strong>
-              <span>Strong visual thinking</span>
+              <strong>50+</strong>
+              <span>Project selesai</span>
             </div>
             <div class="metric">
-              <strong>Analytical</strong>
-              <span>Data-driven decisions</span>
+              <strong>100%</strong>
+              <span>Fokus kualitas visual</span>
             </div>
           </div>
         </div>
 
         <div class="profile-card reveal">
-          <div class="avatar-wrap home-avatar" style="background-image: linear-gradient(135deg, rgba(110,168,254,0.22), rgba(139,92,246,0.18)), url('assets/img/profile-card.svg'); background-size: cover; background-position: center;">
-            <div class="profile-badge profile-badge-large">
-              <span class="mini-tag">Based in Indonesia</span>
-              <h3>Muhammad Iqbal Tri Mulyono</h3>
+          <div class="avatar-wrap">
+            <div class="profile-badge">
+              <h3>Graphic Designer & Digital Creative</h3>
               <p>
-                A multidisciplinary digital talent with a passion for turning ideas into visual identity, measurable campaigns, responsive websites, and intuitive user experiences.
+                Spesialis dalam desain visual profesional, identitas brand, konten digital, dan interface modern untuk bisnis personal maupun corporate.
               </p>
-              <div class="mini-points">
-                <span>Brand Awareness</span>
-                <span>SEO & Marketing</span>
-                <span>Data Performance</span>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="about">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <h2>Professional Snapshot</h2>
+            <h2>Tentang Saya</h2>
             <p>
-              I bring a combination of design sensitivity, marketing perspective, technical execution, and analytical thinking into every project.
+              Saya membangun visual yang bukan hanya menarik, tetapi juga menyampaikan pesan, membentuk persepsi, dan memperkuat identitas brand.
             </p>
           </div>
         </div>
-
         <div class="grid-3">
           <div class="card reveal">
-            <div class="service-icon">📱</div>
-            <h3>Social Media & Content Strategy</h3>
-            <p>I manage content direction, audience interaction, and communication strategy to improve engagement and increase brand awareness.</p>
+            <div class="service-icon">🎯</div>
+            <h3>Strategic Branding</h3>
+            <p>Saya merancang visual dengan pendekatan strategi agar brand tampil konsisten, profesional, dan mudah diingat.</p>
           </div>
           <div class="card reveal">
-            <div class="service-icon">🎨</div>
-            <h3>Graphic Design & Visual Branding</h3>
-            <p>I create attractive and professional visuals for digital platforms, promotional materials, and identity-driven brand communication.</p>
+            <div class="service-icon">✨</div>
+            <h3>Modern Design Taste</h3>
+            <p>Menggabungkan estetika modern, clean layout, tipografi kuat, dan animasi halus untuk pengalaman yang premium.</p>
           </div>
           <div class="card reveal">
-            <div class="service-icon">📊</div>
-            <h3>Marketing & Data Analysis</h3>
-            <p>I optimize campaigns with SEO, performance tracking, and analytical tools so creative decisions stay grounded in real results.</p>
+            <div class="service-icon">🚀</div>
+            <h3>Results-Oriented</h3>
+            <p>Bukan hanya bagus secara visual, tetapi juga mendukung promosi, engagement, dan kepercayaan audiens.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <div class="feature-panel reveal">
-          <div>
-            <span class="eyebrow eyebrow-small">Why work with me</span>
-            <h2>More than a designer — I build digital solutions end to end.</h2>
-            <p>
-              From concept and content to interface and performance analysis, I enjoy creating work that looks good, works well, and supports business goals.
-            </p>
-          </div>
-          <div class="feature-list">
-            <div class="feature-item">
-              <strong>Web Development</strong>
-              <span>I can build and manage responsive, functional websites that support branding and usability.</span>
-            </div>
-            <div class="feature-item">
-              <strong>UI/UX Design</strong>
-              <span>I focus on clean layouts and smooth user journeys to create seamless and engaging experiences.</span>
-            </div>
-            <div class="feature-item">
-              <strong>Creative + Data Mindset</strong>
-              <span>I combine visual creativity with performance analysis to make each project more impactful and measurable.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
+    <section id="services">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <h2>Core Expertise</h2>
+            <h2>Layanan & Keahlian</h2>
             <p>
-              My multidisciplinary background allows me to contribute across branding, marketing, design systems, web execution, and user experience.
+              Saya menawarkan solusi visual untuk personal branding, bisnis, dan kebutuhan digital yang membutuhkan tampilan profesional.
             </p>
           </div>
         </div>
+        <div class="grid-3">
+          <div class="card reveal">
+            <h3>Visual Branding</h3>
+            <p>Logo, identitas visual, guideline sederhana, dan materi promosi digital yang selaras dengan brand image.</p>
+          </div>
+          <div class="card reveal">
+            <h3>UI / Landing Page Design</h3>
+            <p>Desain antarmuka modern untuk website, portfolio, company profile, dan promosi digital.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Social Media Creative</h3>
+            <p>Konten visual untuk Instagram, promosi event, campaign brand, dan personal brand content.</p>
+          </div>
+        </div>
 
-        <div class="skills-wrap reveal">
-          <span class="chip">Social Media Strategy</span>
-          <span class="chip">Graphic Design</span>
-          <span class="chip">Brand Awareness Campaigns</span>
-          <span class="chip">Digital Marketing</span>
-          <span class="chip">SEO Optimization</span>
-          <span class="chip">Data Analysis</span>
-          <span class="chip">Website Development</span>
-          <span class="chip">Responsive Web Design</span>
-          <span class="chip">UI Design</span>
-          <span class="chip">UX Thinking</span>
-          <span class="chip">Content Planning</span>
-          <span class="chip">Performance Reporting</span>
+        <div style="margin-top: 22px" class="card reveal">
+          <h3 style="margin-bottom: 18px">Tools & Skills</h3>
+          <div class="skills-wrap">
+            <span class="chip">Adobe Photoshop</span>
+            <span class="chip">Adobe Illustrator</span>
+            <span class="chip">CorelDRAW</span>
+            <span class="chip">Figma</span>
+            <span class="chip">Adobe XD</span>
+            <span class="chip">Premiere Pro</span>
+            <span class="chip">CapCut Desktop</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Excel & Data Analysis</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="skills-showcase">
+    <section id="projects">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <h2>Tools I Work With</h2>
+            <h2>Selected Projects</h2>
             <p>
-              A selection of platforms, design tools, and web technologies I use to turn ideas into visual content, responsive websites, and performance-driven digital work.
+              Beberapa contoh karya yang menonjolkan kombinasi antara estetika visual, strategi komunikasi, dan eksekusi digital.
             </p>
           </div>
         </div>
 
-        <div class="logo-marquee reveal">
-          <div class="logo-track">
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Adobe Photoshop logo"><span>Photoshop</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Adobe Illustrator logo"><span>Illustrator</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma logo"><span>Figma</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" alt="Adobe XD logo"><span>Adobe XD</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" alt="HTML5 logo"><span>HTML5</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" alt="CSS3 logo"><span>CSS3</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript logo"><span>JavaScript</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap logo"><span>Bootstrap</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel logo"><span>Laravel</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub logo"><span>GitHub</span></div>
+        <div class="projects">
+          <article class="project-card reveal">
+            <div class="project-cover cover-1"></div>
+            <div class="project-body">
+              <span class="project-meta">Brand Identity</span>
+              <h3>Corporate Visual Refresh</h3>
+              <p>Redesign visual perusahaan untuk meningkatkan citra profesional dan konsistensi brand pada media digital.</p>
+              <div class="project-links">
+                <a class="project-link" href="#">Preview</a>
+                <a class="project-link" href="#">Case Study</a>
+              </div>
+            </div>
+          </article>
 
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Adobe Photoshop logo"><span>Photoshop</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Adobe Illustrator logo"><span>Illustrator</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma logo"><span>Figma</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" alt="Adobe XD logo"><span>Adobe XD</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" alt="HTML5 logo"><span>HTML5</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" alt="CSS3 logo"><span>CSS3</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript logo"><span>JavaScript</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap logo"><span>Bootstrap</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel logo"><span>Laravel</span></div>
-            <div class="logo-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub logo"><span>GitHub</span></div>
+          <article class="project-card reveal">
+            <div class="project-cover cover-2"></div>
+            <div class="project-body">
+              <span class="project-meta">UI Design</span>
+              <h3>Modern Portfolio Interface</h3>
+              <p>Desain landing page personal branding yang clean, elegan, dan dibuat untuk memperkuat kesan profesional.</p>
+              <div class="project-links">
+                <a class="project-link" href="#">Preview</a>
+                <a class="project-link" href="#">Case Study</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-cover cover-3"></div>
+            <div class="project-body">
+              <span class="project-meta">Creative Campaign</span>
+              <h3>Social Media Branding Kit</h3>
+              <p>Paket konten visual untuk kampanye digital yang fokus pada engagement, identitas, dan tampilan premium.</p>
+              <div class="project-links">
+                <a class="project-link" href="#">Preview</a>
+                <a class="project-link" href="#">Case Study</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>Experience Journey</h2>
+            <p>
+              Perjalanan profesional yang membentuk gaya kerja, standar visual, dan pendekatan personal branding saya hari ini.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2022 — Sekarang</div>
+            <div class="timeline-content">
+              <h3>Creative Designer & Digital Visual Specialist</h3>
+              <span>Mengembangkan berbagai kebutuhan desain untuk branding, promosi digital, konten sosial media, dan tampilan interface modern.</span>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2020 — 2022</div>
+            <div class="timeline-content">
+              <h3>Visual Content & Brand Support</h3>
+              <span>Mengerjakan kebutuhan materi visual promosi dan mendukung komunikasi brand agar tampil lebih profesional di berbagai channel.</span>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-year">Skill Expansion</div>
+            <div class="timeline-content">
+              <h3>Design + Web + Data</h3>
+              <span>Menggabungkan kemampuan desain grafis, editing video, UI tools, web coding dasar, serta analisis data Excel untuk solusi yang lebih lengkap.</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="contact">
       <div class="container">
         <div class="contact-box reveal">
           <div>
-            <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 10px;">Ready to create meaningful digital work</h2>
+            <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 10px;">Mari Bangun Brand yang Lebih Kuat</h2>
             <p>
-              I am passionate about continuous learning and growth in the fast-moving digital world.
-              Explore my background, see selected projects, and let’s connect for collaboration or new opportunities.
+              Saya terbuka untuk kolaborasi desain, personal branding, kebutuhan portfolio, company profile, UI visual, dan materi promosi digital.
+              Hubungi saya melalui email atau sosial media untuk memulai project berikutnya.
             </p>
           </div>
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="projects.html">See Selected Work</a>
-            <a class="btn btn-secondary" href="contact.html">Get In Touch</a>
+            <a class="btn btn-primary" href="mailto:emailkamu@example.com">Email Saya</a>
+            <a class="btn btn-secondary" href="https://github.com/username" target="_blank">GitHub</a>
           </div>
         </div>
       </div>
@@ -222,9 +819,23 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="currentYear"></span> Muhammad Iqbal Tri Mulyono • Built for GitHub Pages</div>
+    <div class="container">
+      © 2026 Nama Kamu • Personal Branding Portfolio • Built for GitHub Pages
+    </div>
   </footer>
 
-  <script src="assets/js/script.js"></script>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.14 });
+
+    reveals.forEach((item) => observer.observe(item));
+  </script>
 </body>
 </html>
