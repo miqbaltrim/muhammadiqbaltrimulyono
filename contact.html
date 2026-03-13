@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak | Nama Kamu</title>
+  <meta name="description" content="Halaman kontak portfolio personal branding." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+  <div class="blur-orb orb-3"></div>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">P</div>
+        <div>
+          <div>Nama Kamu</div>
+          <small>Creative Portfolio</small>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">Tentang</a>
+        <a href="projects.html">Project</a>
+        <a href="contact.html" class="active">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="reveal active">
+          <span class="eyebrow">Contact & Collaboration</span>
+          <h1>Mari bangun project yang <span class="gradient-text">lebih kuat secara visual.</span></h1>
+          <p>
+            Halaman ini sudah siap untuk kontak, link sosial media, atau form singkat. Untuk GitHub Pages, form tidak bisa memproses backend sendiri,
+            jadi gunakan layanan seperti Formspree, Getform, atau arahkan ke email/WhatsApp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contact-grid">
+        <div class="contact-card reveal">
+          <h3>Informasi Kontak</h3>
+          <ul class="contact-list">
+            <li>Email: emailkamu@example.com</li>
+            <li>GitHub: github.com/username</li>
+            <li>Instagram / Behance / LinkedIn: tambahkan link kamu di sini</li>
+            <li>Lokasi: Indonesia</li>
+          </ul>
+
+          <div class="spacer-32">
+            <h3>Layanan Kolaborasi</h3>
+            <ul class="contact-list">
+              <li>Branding & visual identity</li>
+              <li>Portfolio / landing page design</li>
+              <li>Konten promosi digital</li>
+              <li>UI visual dan social media design</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact-card reveal">
+          <h3>Form Demo</h3>
+          <form id="contactForm">
+            <label class="label" for="name">Nama</label>
+            <input class="field" id="name" type="text" placeholder="Masukkan nama" required />
+
+            <label class="label" for="email">Email</label>
+            <input class="field" id="email" type="email" placeholder="Masukkan email" required />
+
+            <label class="label" for="message">Pesan</label>
+            <textarea class="field" id="message" placeholder="Tulis kebutuhan project kamu..."></textarea>
+
+            <button class="btn btn-primary" type="submit">Kirim Pesan</button>
+            <p id="formStatus" class="notice"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="currentYear"></span> Nama Kamu • Contact Page</div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
